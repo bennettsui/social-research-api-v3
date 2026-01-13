@@ -79,10 +79,9 @@ Generate the campaign research result.`;
       max_tokens: 4000,
       system: SYSTEM_PROMPT,
       messages: [
-        {
-          role: 'user',
-          content: userMessage
-        }
+{
+              role: 'user',
+content: userMessage        }
       ]
     });
 
