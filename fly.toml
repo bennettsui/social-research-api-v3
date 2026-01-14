@@ -1,10 +1,10 @@
-# fly.toml app configuration file generated for social-research-api-v3 on 2026-01-13T18:47:42Z
+# fly.toml app configuration file generated for social-research-api-v3-xsrbtw on 2026-01-14T07:06:29Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'social-research-api-v3'
-primary_region = 'sjc'
+app = 'social-research-api-v3-xsrbtw'
+primary_region = 'cdg'
 
 [build]
 
