@@ -296,10 +296,70 @@
                 data.competitors.forEach(comp => {
                     html += `<div class="competitor-item">`;
                     html += `<strong>${comp.name}</strong>`;
-                    if (comp.strength) html += `<br><small>💪 ${comp.strength}</small>`;
+                    if (comp.approach) html += `<br><small>💪 ${comp.approach}</small>`;
                     html += `</div>`;
                 });
             }
+
+            // Content Directions
+            if (data.content_directions && data.content_directions.length > 0) {
+                html += '<h3 style="margin: 15px 0 10px; color: #38b2ac;">🎯 Content Directions</h3>';
+
+                data.content_directions.forEach(direction => {
+                    html += `<div class="content-direction" style="margin-bottom: 20px; padding: 10px; border-left: 4px solid #38b2ac;">`;
+                    html += `<h4 style="margin: 5px 0;">📌 ${direction.direction_title}</h4>`;
+                    html += `<p style="margin: 5px 0 10px; color: #555;">💡 ${direction.rationale}</p>`;
+
+                    // Post
+                    if (direction.examples.post) {
+                        html += `<div style="margin-left: 10px; margin-bottom: 8px;">`;
+                        html += `<strong>📝 Post:</strong><br>`;
+                        if (direction.examples.post.caption) {
+                            html += `Caption: ${direction.examples.post.caption}<br>`;
+                        }
+                        if (direction.examples.post.visual_concept) {
+                            html += `Visual Concept: ${direction.examples.post.visual_concept}`;
+                        }
+                        html += `</div>`;
+                    }
+
+                    // Video
+                    if (direction.examples.video) {
+                        html += `<div style="margin-left: 10px; margin-bottom: 8px;">`;
+                        html += `<strong>🎬 Video:</strong><br>`;
+                        if (direction.examples.video.hook) {
+                            html += `Hook: ${direction.examples.video.hook}<br>`;
+                        }
+                        if (direction.examples.video.script) {
+                            html += `Script: ${direction.examples.video.script}<br>`;
+                        }
+                        if (direction.examples.video.visual_notes) {
+                            html += `Visual Notes: ${direction.examples.video.visual_notes}`;
+                        }
+                        html += `</div>`;
+                    }
+
+                    // Threads
+                    if (direction.examples.threads) {
+                        html += `<div style="margin-left: 10px; margin-bottom: 8px;">`;
+                        html += `<strong>🧵 Threads:</strong><br>`;
+                        if (direction.examples.threads.first_thread) {
+                            html += `First Thread: ${direction.examples.threads.first_thread}<br>`;
+                        }
+                        if (direction.examples.threads.subsequent_threads && direction.examples.threads.subsequent_threads.length > 0) {
+                            html += `Subsequent Threads:<br><ul>`;
+                            direction.examples.threads.subsequent_threads.forEach(thread => {
+                                html += `<li>${thread}</li>`;
+                            });
+                            html += `</ul>`;
+                        }
+                        html += `</div>`;
+                    }
+
+                    html += `</div>`;
+                });
+            }
+
             
             // Additional insights
             if (data.insights) {
