@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const Anthropic = require('@anthropic-ai/sdk');
+const { Anthropic } = require("@anthropic-ai/sdk");
 const cors = require('cors');
 
 const app = express();
@@ -12,6 +12,8 @@ app.use(cors());
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
 });
+
+console.log("ANTHROPIC KEY PRESENT?", !!process.env.ANTHROPIC_API_KEY);
 
 const SYSTEM_PROMPT = `You are a campaign strategist. Analyze the brand and campaign brief provided, then output a COMPACT research result in JSON format with these exact fields:
 
